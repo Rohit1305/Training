@@ -1,0 +1,20 @@
+package com.aurionpro.model;
+
+public class Switch {
+	private Command onCommand;
+	private Command offCommand;
+
+	Switch(Command onCommand, Command offCommand) {
+		this.onCommand = onCommand;
+		this.offCommand = offCommand;
+	}
+
+	void turnOn() {
+		onCommand.execute();
+	}
+
+	void turnOff() {
+		offCommand.execute();
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Account;
+
+public class AccountTest {
+	Account account = new Account(101,"Rohit",10000);
+//	account.registerNotifier(new EmailNotifier());
+	
+    try {
+        account.Deposite(500.0);
+    } catch (Exception e1) {
+        System.out.println("Deposit failed: " + e1.getMessage());
+    }
+
+    try {
+        account.withdraw(200.0);
+    } catch (Exception e) {
+        System.out.println("Withdrawal failed: " + e1.getMessage());
+    }
+
+}}

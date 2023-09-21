@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;UnCheckedException.java&apos; to &apos;UnCheckedException.java&apos;&#x0D;&#x0A;- Original project: &apos;32-unchecked-exception-propagation&apos;&#x0D;&#x0A;- Destination element: &apos;UnCheckedException.java&apos;&#x0D;&#x0A;- Original element: &apos;UnCheckedException.java&apos;" description="Copy compilation unit" destination="/src&lt;{UnCheckedException.java" element1="/src&lt;{UnCheckedException.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1689935468972" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,7 @@
+package com.aurionpro.model;
+
+public interface Internet {
+	public static void connectTo(String server) {
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.CarInspection;
+import com.aurionpro.model.ICarService;
+import com.aurionpro.model.OilChange;
+
+public class CarTest {
+	public static void main (String args[]) {
+		ICarService car=new CarInspection();
+		OilChange oil=new OilChange(car);
+//		System.out.println(oil.getServiceDetails());
+		System.out.println(oil.getCost());
+	}
+	
+
+}

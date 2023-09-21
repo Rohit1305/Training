@@ -1,0 +1,29 @@
+package com.aurionpro.model;
+
+import java.util.ArrayList;
+
+public class ProxyInternet implements Internet{
+	RealInternet internet;
+	ArrayList <String> bannedsites;
+	
+    public ProxyInternet() {
+        super();
+        this.internet = new RealInternet();
+        this.bannedsites = new ArrayList<>();
+        bannedsites.add("google.com");
+    }
+	@Override
+	public void connectTo(String serverUrl) {
+	      if (isSiteBanned(serverUrl)) {
+	            System.out.println("Access to " + serverUrl + " is blocked.");
+	        } else {
+	            internet.connectTo(serverUrl);
+	        }	
+	}
+    private boolean isSiteBanned(String serverUrl) {
+        return bannedsites.contains(serverUrl);
+    }
+	
+	
+
+}

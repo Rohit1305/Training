@@ -1,0 +1,12 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Account;
+
+public class AccountTest {
+	Account acc = new Account(101,"Rohit",10000);
+	acc.registerNotifier(new EmailNotifier());
+	acc.registerNotifier(new SMSNotifier());
+	acc.Deposite(5000);
+	System.out.println("-----------------------");
+	acc.withdraw(500);
+}

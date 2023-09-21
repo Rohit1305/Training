@@ -1,0 +1,19 @@
+package com.aurionpro.model;
+
+import java.util.HashMap;
+
+public class CircleShapefactory {
+	private static final HashMap circ = new HashMap();
+
+	public static IShape getCircle(String color) {
+		Circle circle = (Circle) circ.get(color);
+
+		if (circle == null) {
+			circle = new Circle(color);
+			circ.put(color, circle);
+			System.out.println("Creating circle of color : " + color);
+		}
+		return circle;
+	}
+
+}

@@ -1,0 +1,18 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Laptop;
+import com.aurionpro.model.LaptopBuilder;
+
+public class LaptopTest {
+
+	public static void main(String[] args) {
+
+		LaptopBuilder builder = new LaptopBuilder();
+
+		Laptop laptop = builder.addId(101).addBrand("HP").addHdd("512GB")
+				.addRam("16GB").addProcessor("Intel Core i7")
+				.addTouchscreen(true).build();
+		System.out.println(laptop);
+	}
+
+}

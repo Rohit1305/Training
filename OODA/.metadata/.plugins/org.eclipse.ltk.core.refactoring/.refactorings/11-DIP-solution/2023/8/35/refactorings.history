@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.aurionpro.model.DBLogger.java&apos; to &apos;DbLogger.java&apos;&#x0D;&#x0A;- Original project: &apos;11-DIP-solution&apos;&#x0D;&#x0A;- Original element: &apos;com.aurionpro.model.DBLogger.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.aurionpro.model.DbLogger.java&apos;" description="Rename compilation unit &apos;DBLogger.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.aurionpro.model{DBLogger.java" name="DbLogger.java" references="false" stamp="1693424554732" version="1.0"/>
+</session>

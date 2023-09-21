@@ -1,0 +1,21 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Circle;
+import com.aurionpro.model.CircleShapefactory;
+
+public class FlyWeightTest {
+	private static final String colors[] = { "Red", "Green", "Blue", "White", "Black" };
+
+
+	public static void main(String[] args) {
+		for (int i = 0; i < 20; ++i) {
+			Circle circle = (Circle) CircleShapefactory.getCircle(getRandomColor());
+			circle.draw();
+		}
+	}
+
+	private static String getRandomColor() {
+		return colors[(int) (Math.random() * colors.length)];
+	}
+
+}
