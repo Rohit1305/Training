@@ -1,6 +1,0 @@
-package com.aurionpro.model;
-
-public interface ICarfactory {
-	ICars makeCar();
-
-}

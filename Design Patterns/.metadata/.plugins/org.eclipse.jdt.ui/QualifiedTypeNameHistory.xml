@@ -41,8 +41,15 @@
 <fullyQualifiedTypeName name="com.aurionpro.model.RealInternet"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.ProxyInternet"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="com.aurionpro.model.Circle"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.CircleShapefactory"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.IShape"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.Shape"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.Circle"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.RedColor"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.Square"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.BlueColor"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.TrafficLight"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.GreenState"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.RedState"/>
 </qualifiedTypeNameHistroy>
