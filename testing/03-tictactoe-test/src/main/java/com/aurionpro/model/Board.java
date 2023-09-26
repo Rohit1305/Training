@@ -1,11 +1,15 @@
 package com.aurionpro.model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
 public class Board {
 	private Cell[] cells = new Cell[9];
 
     public Board() {
         for (int i = 0; i < cells.length; i++) {
-            cells[i] = new Cell(null);
+            cells[i] = new Cell(MarkType.EMPTY);
         }
     }
 
@@ -22,11 +26,21 @@ public class Board {
         if (loc < 0 || loc >= cells.length) {
             throw new IllegalArgumentException("Invalid cell location");
         }
-        cells[loc].setMark(mark);
+        
+        if (cells[loc].isEmpty()) {
+            cells[loc].setMark(mark);
+        } else {
+            throw new CellAlreadyMarkedException("Cell is already marked.");
+        }
     }
+
+    
+    
+    
     public Cell[] getCells() {
         return cells;
     }
     
+
 
 }

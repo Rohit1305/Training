@@ -12,7 +12,7 @@ public class GameTest {
 
 	public static void main(String[] args) {
 
-		Scanner scanner = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
         Board board = new Board();
         ResultAnalyzer resultAnalyzer = new ResultAnalyzer(board);
         MarkType currentPlayerMark = MarkType.X;
@@ -26,7 +26,7 @@ public class GameTest {
             int move;
             do {
                 System.out.println("Player " + currentPlayerMark + ", enter your move (0-8): ");
-                move = scanner.nextInt();
+                move = sc.nextInt();
             } while (move < 0 || move > 8 || !board.getCells()[move].isEmpty());
 
             try {
@@ -52,7 +52,6 @@ public class GameTest {
         }
 
         System.out.println("Thanks for playing Tic-Tac-Toe!");
-        scanner.close();
     }
 
     public static void displayBoard(Board board) {
@@ -66,6 +65,4 @@ public class GameTest {
             System.out.println("\n-------------");
         }
     }
-	
-
 }
