@@ -12,11 +12,15 @@
  
 <ul>
 <%
-String item = todos.getParameter("todosItem");
+String item = request.getParameter("todosItem");
 List<String> itemlist = (List<String>) session.getAttribute("TodosList");
-if (itemlist != null) {
-	for (int i = 0; i < itemlist.length; i++) {
-		out.println(itemlist[i]);
+if (itemlist == null) {
+	itemlist = new ArrayList<>();
+}
+if(item != null && item.trim().length()>0){
+	itemlist.add(item);
+	session.setAttribute("TodosList", itemlist);
+}
 %>
 </ul>
 </body>
