@@ -1,28 +1,32 @@
-package com.aurionpro.model;
+package com.aurionpro.jdbc;
 
 import java.io.IOException;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import javax.servlet.RequestDispatcher;
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.sun.webkit.Utilities;
+import javax.sql.DataSource;
 
 /**
- * Servlet implementation class ServletTest
+ * Servlet implementation class JdbcTest
  */
-@WebServlet("/ServletTest")
-public class ServletTest extends HttpServlet {
+@WebServlet("/JdbcTest")
+public class JdbcTest extends HttpServlet {
+	@Resource (name="jdbc/student-source")
+	private DataSource datasource;
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletTest() {
+    public JdbcTest() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,19 +36,6 @@ public class ServletTest extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String students[]= {"rohit","virat","sachin","rahul"};
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-		request.setAttribute("allStud", students);
-//		dispatcher.forward(request, response);
-		
-	    StudentUtil util = new StudentUtil();
-        List<Student> allStud = util.getAllStudents();
-        request.setAttribute("allStudents", allStud);
-        
-//        RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
-        dispatcher.forward(request, response);
-		
-		
 	}
 
 	/**
