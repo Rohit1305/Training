@@ -20,6 +20,21 @@
 <body>
 	<div class="container">
 		<h1>Student DB</h1>
+		<form action="StudentController" method="get" class="mb-3">
+		<!-- <label for="search" >Search by:</label>  -->
+			<input type="hidden" name="action" value="search" >
+			<div class="input-group">
+				
+				<select class="form-select" name="searchBy">
+					<option value="id">ID</option>
+					<option value="firstname">First Name</option>
+					<option value="lastname">Last Name</option>
+					<option value="email">Email</option>
+				</select> <input type="text" class="form-control"
+					placeholder="Search by First Name" name="searchTerm" id ="search">
+				<button type="submit" class="btn btn-primary">Search</button>
+			</div>
+		</form>
 		<table class="table table-striped table-hover">
 
 			<tr>
@@ -27,12 +42,16 @@
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email</th>
-				<th>Action </th>
+				<th>Action</th>
 			</tr>
 			<c:forEach var="student" items="${allStud}">
-			
+
 				<c:url var="updateLink" value="StudentController">
 					<c:param name="action" value="update" />
+					<c:param name="id" value="${student.id}" />
+				</c:url>
+				<c:url var="deleteLink" value="StudentController">
+					<c:param name="action" value="delete" />
 					<c:param name="id" value="${student.id}" />
 				</c:url>
 				<tr>
@@ -40,7 +59,8 @@
 					<td>${student.firstName}</td>
 					<td>${student.lastName}</td>
 					<td>${student.email}</td>
-					<td><a href="${updateLink}" class="btn btn-warning">Update</a> </td>
+					<td><a href="${updateLink}" class="btn btn-warning">Update</a>
+						<a href="${deleteLink}" class="btn btn-danger">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>ADD STUDENT</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -21,6 +21,7 @@
 	<div class="container">
 		<h1>Add Student</h1>
 		<form action="StudentController" method="get">
+	
 			<div class="mb-3">
 				<label for="firstname" class="form-label">First Name</label> <input
 					type="text" class="form-control" id="name"

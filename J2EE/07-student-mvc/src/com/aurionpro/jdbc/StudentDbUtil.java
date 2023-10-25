@@ -85,7 +85,7 @@ public class StudentDbUtil {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet result = null;
-		Student tempStudent= null;
+		Student tempStudent = null;
 		try {
 			conn = datasource.getConnection();
 			String sql = "select * from student where id=?";
@@ -93,13 +93,13 @@ public class StudentDbUtil {
 			stmt.setInt(1, id);
 			result = stmt.executeQuery();
 			if (result.next()) {
-				
+
 				String firstname = result.getString("first_name");
 				String lastname = result.getString("last_name");
 				String email = result.getString("email");
 
 				tempStudent = new Student(id, firstname, lastname, email);
-				
+
 			}
 			return tempStudent;
 
@@ -118,20 +118,116 @@ public class StudentDbUtil {
 		try {
 			conn = datasource.getConnection();
 			String sql = "update student set first_name=?,last_name=?,email=? where id =?";
-			
+
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, stud.getFirstName());
 			stmt.setString(2, stud.getLastName());
 			stmt.setString(3, stud.getEmail());
 			stmt.setInt(4, stud.getId());
 			stmt.execute();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(conn, stmt, null);
 		}
-	
+
 	}
+
+	public void deleteStudent(int id) throws SQLException {
+
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			conn = datasource.getConnection();
+			String sql = "delete from student where id=?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, stmt, null);
+		}
+	}
+
+	public List<Student> searchStudents(String searchBy, String searchTerm) throws SQLException {
+		List<Student> students = new ArrayList<>();
+	    Connection conn = null;
+	    PreparedStatement stmt = null;
+	    ResultSet result = null;
+	    
+		try {
+			conn = datasource.getConnection();
+			String sql = "select * from student where first_name like ?";
+			switch(searchBy) {
+			case"id":
+				sql ="select * from student where id like ?";
+				break;
+			case"firstname":
+				sql ="select * from student where first_name like ?";
+				break;
+			case"lastname":
+				sql ="select * from student where last_name like ?";
+				break;
+			case"email":
+				sql ="select * from student where email like ?";
+				break;
+			}
+//			String sql = "select * from student where first_name like ?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1,"%"+searchTerm+"%" );
+			result = stmt.executeQuery();
+			while (result.next()) {
+				int id = result.getInt("id");
+				String newfirstname = result.getString("first_name");
+				String lastname = result.getString("last_name");
+				String email = result.getString("email");
+
+				Student tempStudent = new Student(id, newfirstname, lastname, email);
+				students.add(tempStudent);
+			}
+			return students;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, stmt, null);
+		}
+		return students;
+	}
+
+
+
+
+
+
+//	public List<Student> getStudentsByName(String firstName) throws SQLException {
+//		List<Student> students = new ArrayList<>();
+//	    Connection conn = null;
+//	    PreparedStatement stmt = null;
+//	    ResultSet result = null;
+//		try {
+//			conn = datasource.getConnection();
+//			String sql = "select * from student where first_name like ?";
+//			stmt = conn.prepareStatement(sql);
+//			stmt.setString(1,"%"+firstName+"%" );
+//			result = stmt.executeQuery();
+//			while (result.next()) {
+//				int id = result.getInt("id");
+//				String newfirstname = result.getString("first_name");
+//				String lastname = result.getString("last_name");
+//				String email = result.getString("email");
+//
+//				Student tempStudent = new Student(id, newfirstname, lastname, email);
+//				students.add(tempStudent);
+//			}
+//			return students;
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close(conn, stmt, null);
+//		}
+//		return students;
+//	}
 
 }

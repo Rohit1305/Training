@@ -13,7 +13,20 @@ insert into student (first_name,last_name,email) values
     ('virat','kohli','virat@gmail.com'),
     ('sachin','tendulkar','sachin@gmail.com');
     
-    delete from student 
+CREATE TABLE employee(
+    id int auto_increment primary key,
+    name varchar(50) not null,
+    email varchar(50) not null,
+    password varchar(50) not null,
+    dob date,
+    gender enum('Male', 'Female', 'Other'),
+    designation varchar(50)
+);
+
+insert into employee (name, email, password, dob, gender, designation)
+values ('rohit', 'rohit@gmail.com', 'admin123', '2000-01-15', 'Male', 'Employee');
+
+
 
     
     

@@ -73,6 +73,20 @@ public class StudentController extends HttpServlet {
 				e1.printStackTrace();
 			}
 			break;
+		case "delete":
+			try {
+				deleteStudent(request, response);
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			break;
+		case "search":
+			try {
+				searchStudent(request, response);
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			break;
 		default:
 			try {
 				listStudent(request, response);
@@ -84,6 +98,38 @@ public class StudentController extends HttpServlet {
 
 	}
 
+	private void searchStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+
+//		String searchFirstName = request.getParameter("searchFirstName");
+//		if(searchFirstName.equals("")) {
+//			response.sendRedirect(request.getContextPath()+"/StudentController");
+//		}else {
+//		List<Student> studentList = dbUtil.getStudentsByName(searchFirstName);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/list-students.jsp");
+//		request.setAttribute("allStud", studentList);
+//		dispatcher.forward(request, response);}
+		
+	    String searchBy = request.getParameter("searchBy");
+	    String searchTerm = request.getParameter("searchTerm");
+//	    System.out.println(searchBy);
+//	    System.out.println(searchTerm);
+	    List<Student> searchedStudents = dbUtil.searchStudents(searchBy, searchTerm);
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/list-students.jsp");
+	    request.setAttribute("allStud", searchedStudents);
+		dispatcher.forward(request, response);
+		}
+	    
+	    
+		
+	
+
+	private void deleteStudent(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		dbUtil.deleteStudent(id);
+		listStudent(request, response);
+		
+	}
+
 	private void updateStudent(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 
 		int id =Integer.parseInt(request.getParameter("id"));
@@ -93,7 +139,8 @@ public class StudentController extends HttpServlet {
 		Student stud = new Student(id,fname, lname, email);
 
 		dbUtil.updateStudent(stud);
-		listStudent(request, response);
+//		listStudent(request, response);
+		response.sendRedirect(request.getContextPath()+"/StudentController");
 		
 	}
 
@@ -116,7 +163,8 @@ public class StudentController extends HttpServlet {
 
 		dbUtil.addNewStudent(stud);
 		// System.out.println(stud);
-		listStudent(request, response);
+//		listStudent(request, response);
+		response.sendRedirect(request.getContextPath()+"/StudentController");
 
 	}
 
