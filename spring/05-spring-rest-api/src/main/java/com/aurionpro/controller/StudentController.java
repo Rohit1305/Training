@@ -2,6 +2,7 @@ package com.aurionpro.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,7 +42,9 @@ public class StudentController {
 	public Student updateStudent(@RequestBody Student student ) {
 		return repository.updateStudent(student);
 	}
+	@DeleteMapping("/students/{studentId}")
+	public void deleteStudentById(@PathVariable int studentId) {
+		repository.deleteById(studentId);
 	
-	
-	
+	}
 }

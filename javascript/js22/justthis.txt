@@ -1,0 +1,184 @@
+Microsoft Windows [Version 10.0.22621.1928]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\rohit.sabat\Desktop\volly>git init
+Initialized empty Git repository in C:/Users/rohit.sabat/Desktop/volly/.git/
+
+C:\Users\rohit.sabat\Desktop\volly>git add .
+
+C:\Users\rohit.sabat\Desktop\volly>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   example.txt
+
+
+C:\Users\rohit.sabat\Desktop\volly>
+C:\Users\rohit.sabat\Desktop\volly>git commit -m "v1"
+[master (root-commit) 4a273bc] v1
+ Committer: Rohit Sabat <Rohit.Sabat@asl.mum.sst>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 example.txt
+
+C:\Users\rohit.sabat\Desktop\volly>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\rohit.sabat\Desktop\volly>git branch f1
+
+C:\Users\rohit.sabat\Desktop\volly>git switch f1
+Switched to branch 'f1'
+
+C:\Users\rohit.sabat\Desktop\volly>git add .
+
+C:\Users\rohit.sabat\Desktop\volly>git commit -m "f1 commit"
+[f1 57f30a4] f1 commit
+ Committer: Rohit Sabat <Rohit.Sabat@asl.mum.sst>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+C:\Users\rohit.sabat\Desktop\volly>git switch master
+Switched to branch 'master'
+
+C:\Users\rohit.sabat\Desktop\volly>git branch -M main
+
+C:\Users\rohit.sabat\Desktop\volly>git remote add origin https://github.com/Rohit1305/crick.git
+
+C:\Users\rohit.sabat\Desktop\volly>git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 238 bytes | 59.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Rohit1305/crick.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+C:\Users\rohit.sabat\Desktop\volly>git push -u origin f1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 300 bytes | 60.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'f1' on GitHub by visiting:
+remote:      https://github.com/Rohit1305/crick/pull/new/f1
+remote:
+To https://github.com/Rohit1305/crick.git
+ * [new branch]      f1 -> f1
+branch 'f1' set up to track 'origin/f1'.
+
+C:\Users\rohit.sabat\Desktop\volly>git switch main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+
+C:\Users\rohit.sabat\Desktop\volly>git branch
+  f1
+* main
+
+C:\Users\rohit.sabat\Desktop\volly>git switch f1
+Switched to branch 'f1'
+Your branch is up to date with 'origin/f1'.
+
+C:\Users\rohit.sabat\Desktop\volly>git switch master
+fatal: invalid reference: master
+
+C:\Users\rohit.sabat\Desktop\volly>git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+C:\Users\rohit.sabat\Desktop\volly>git switch main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+
+C:\Users\rohit.sabat\Desktop\volly>cd origin
+The system cannot find the path specified.
+
+C:\Users\rohit.sabat\Desktop\volly>git branch
+  f1
+* main
+
+C:\Users\rohit.sabat\Desktop\volly>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   example.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\rohit.sabat\Desktop\volly>git add .
+
+C:\Users\rohit.sabat\Desktop\volly>git commit -m "main changes "
+[main d1289e0] main changes
+ Committer: Rohit Sabat <Rohit.Sabat@asl.mum.sst>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+C:\Users\rohit.sabat\Desktop\volly>git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 301 bytes | 100.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Rohit1305/crick.git
+   4a273bc..d1289e0  main -> main
+
+C:\Users\rohit.sabat\Desktop\volly>
+
+
+
+
+
+to fetch the data 
+
+You can fix this by fetching and merging the changes made on the remote branch with the changes that you have made locally:
+
+$ git fetch origin
+# Fetches updates made to an online repository
+$ git merge origin YOUR_BRANCH_NAME
+# Merges updates made online with your local work
+Or, you can simply use git pull to perform both commands at once:
+
+$ git pull origin YOUR_BRANCH_NAME
+# Grabs online updates and merges them with your local work

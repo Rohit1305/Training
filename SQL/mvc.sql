@@ -27,6 +27,28 @@ insert into employee (name, email, password, dob, gender, designation)
 values ('rohit', 'rohit@gmail.com', 'admin123', '2000-01-15', 'Male', 'Employee');
 
 
+create table instructor (
+    id int auto_increment primary key,
+    name varchar(50),
+    email varchar(50),
+    doj varchar(50)
+);
 
+create table instructortechdetail (
+    id int auto_increment primary key,
+    youtube_url varchar(50),
+    git_url varchar(50)
+);
+
+insert into instructor (name, email, doj) values
+('Rohit', 'rohit@gmail.com', '2022-01-15'),
+('Sachin', 'sachin@gmail.com', '2021-09-20'),
+('Virat', 'virat@gmail.com', '2020-03-10');
+
+insert into instructortechdetail (youtube_url, git_url) values
+('youtube.com/Rohit', 'github.com/Rohit'),
+('youtube.com/Sachin', 'github.com/Sachin'),
+('youtube.com/virat', 'github.com/Virat');
     
+
     

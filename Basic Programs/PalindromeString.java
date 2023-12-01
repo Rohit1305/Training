@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class PalindromeString{  
+	public static void main(String[] args){  
+		String text,reverse = "";
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the text");
+	    text = sc.nextLine(); 
+		  for ( int i = text.length() - 1; i >= 0; i-- ){  
+			 reverse = reverse + text.charAt(i);  
+			 }
+		  if (text.equals(reverse)){ 
+			 System.out.println("Entered text is a palindrome."); 
+             }			 
+		  else { 
+			 System.out.println("Entered text isn't a palindrome.");
+             }			 
+		System.out.println("The reverse of text is: " + reverse);  
+	}  
+} 
